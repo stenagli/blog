@@ -1,0 +1,14 @@
+---
+import StylingItem from "./styling-item.astro";
+
+const { title, items, caption } = Astro.props;
+---
+<div class="mt-8">
+  <h3 class="text-xl font-bold text-center">{title}</h3>
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-4 place-items-center">
+    {items.map((item) => (
+      <StylingItem {...item} />
+    ))}
+  </div>
+  <p class="mt-4">{caption}</p>
+</div>

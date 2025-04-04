@@ -1,0 +1,101 @@
+---
+import { Image } from 'astro:assets';
+import Layout from "../layouts/Layout.astro";
+import Outfit from "../components/outfit.astro";
+import StylingItem from "../components/styling-item.astro";
+import sweaterImage from "../assets/sweater.webp";
+import quinceBlackLeatherJacketImage from "../assets/quince-black-leather-jacket.jpg";
+import quinceMediumWashJeansImage from "../assets/quince-medium-wash-jeans.jpg";
+import beckettSimononBlackChelseaBootsImage from "../assets/beckett-simonon-black-chelsea-boots.webp";
+import leeGreenOvershirtImage from "../assets/lee-green-overshirt.jpg";
+import quinceLightWashJeansImage from "../assets/quince-light-wash-jeans.jpg";
+import converseParchmentChuck70HightopImage from "../assets/converse-parchment-chuck-70-hightop.jpg";
+
+const title = "Everlane The Premium Merino Crew Neck Sweater in Heathered Oat";
+
+const description = "A detailed review of Everlane’s Merino Sweater—its fit, fabric, value, and best buying tips.";
+
+const affiliateLink = "https://www.everlane.com/products/mens-felted-merino-crew-neck-sweater-heathered-oat";
+
+const merinoBenefits = [{
+  title: "Temperature Regulating",
+  text: "Merino wool is naturally insulating even when wet while also being breathable and moisture-wicking. This means it does an excellent job of keeping you warm while also preventing overheating, making it an ideal choice in a wide variety of conditions. Because of these properties it's also the ideal material for variable conditions such as transitioning between indoor and outdoor environments or handling the cool mornings and warm afternoons of transitional weather."
+  }, {
+  title: "Naturally Antibacterial",
+  text: "Merino's antibacterial properties mean it's much more resistant to odors than other textiles, making it the ideal fabric for situations requiring extended wear like travel or during light activity."
+  }, {
+  title: "Durability",
+  text: "Merino wool is stronger than cotton and naturally resists wear and tear. If you take advantage of its natural antibacterial properties, you can also launder it less frequently, thereby extending its life even more. Everlane is also known for its excellent construction, even offering a one-year warranty on some products."
+}]
+
+const outfits = [{
+  title: "Outfit 1",
+  items: [{
+    link: "https://www.quince.com/men/100-leather-harrington-jacket?color=black",
+    image: quinceBlackLeatherJacketImage,
+    alt: "Black Leather Jacket",
+  }, {
+    link: affiliateLink,
+    image: sweaterImage,
+    alt: "Heathered Oat Sweater",
+  }, {
+    link: "https://www.quince.com/men/comfort-stretch-slim-straight-jeans?color=azure-blue",
+    image: quinceMediumWashJeansImage,
+    alt: "Mid Wash Jeans",
+  }, {
+    link: "https://www.beckettsimonon.com/products/bolton-chelsea-boots",
+    image: beckettSimononBlackChelseaBootsImage,
+    alt: "Black Leather Boots",
+  }],
+  caption: "Black Leather Jacket, Quince; Heathered Oat Sweater, Everlane; Mid Wash Jeans, Quince; Black Leather Boots, Beckett Simonon"
+}, {
+  title: "Outfit 2",
+  items: [{
+    link: "https://a.co/d/boMXHvK",
+    image: leeGreenOvershirtImage,
+    alt: "Olive Overshirt",
+  }, {
+    link: affiliateLink,
+    image: sweaterImage,
+    alt: "Heathered Oat Sweater",
+  }, {
+    link: "https://www.quince.com/men/comfort-stretch-slim-straight-jeans?color=arctic-blue",
+    image: quinceLightWashJeansImage,
+    alt: "Light Wash Jeans",
+  }, {
+    link: "https://www.converse.com/shop/p/chuck-70-canvas-unisex-high-top-shoe/162053C_085.html",
+    image: converseParchmentChuck70HightopImage,
+    alt: "Canvas Sneakers",
+  }],
+  caption: "Olive Overshirt, Lee; Heathered Oat Sweater, Everlane; Light Wash Jeans, Quince; Canvas Sneakers, Converse"
+}]
+---
+<Layout title={title} description={description}>
+  <article class="prose prose-lg mx-auto leading-relaxed text-gray-800">
+    <h1 class="text-3xl font-bold text-center">{title}</h1>
+
+    <div class="w-full max-w-md mx-auto">
+      <Image src={sweaterImage} alt="Everlane Merino Sweater" class="w-full rounded-xl shadow-md" />
+
+      <a href={affiliateLink} target="_blank" class="block w-full text-center bg-green-600 text-white font-semibold py-2 px-4 mt-4 rounded-md hover:bg-green-700 transition">
+        $35 at Everlane →
+      </a>
+    </div>
+
+    <p class="mt-6">Merino wool is an ideal fabric for a variety of environments and activities thanks to its unique properties:</p>
+
+    {merinoBenefits.map((benefit) => (
+      <section class="mt-6">
+        <h3 class="text-xl font-semibold">{benefit.title}</h3>
+        <p class="mt-2">{benefit.text}</p>
+      </section>
+    ))}
+
+    <h2 class="text-2xl font-bold text-center mt-8">Styling Ideas</h2>
+    <p class="mt-4">This heathered oat color is an excellent choice for the lighter Spring months. Wear it as a base layer under a midlayer and outer layer during early Spring, under a light jacket during mid spring, or by itself in late spring. Thanks to its temperature regulating properties, it's the ideal garment for all of these temperatures (and also during April showers!).</p>
+
+    {outfits.map((outfit) => (
+      <Outfit {...outfit} />
+    ))
+  </article>
+</Layout>
