@@ -1,16 +1,32 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
+import { Image } from 'astro:assets';
+import merinoSweaterImage from "../assets/sweater.webp";
+const title = "The Sartorial Economist";
 ---
+<Layout title={title} description="Your guide to the best clothing you can buy.">
+  <p class="text-center text-gray-600 italic">Your guide to the best clothing money can buy</p>
+  <p class="mt-4">This site takes a microeconomic approach to clothing. It identifies items that give you the best "bang for your buck", or in microeconomic terms that maximize the utility per dollar spent. It also includes a detailed analysis of each item's value as well as styling ideas. Peruse the articles below to become as stylish as possible.</p> 
+  <p>Each article also includes:</p>
+  <ul class="list-disc list-inside ml-4">
+    <li>Detailed information on what makes the item valuable</li>
+    <li>Recommendations for when, how, and why to wear it</li>
+    <li>Outfit ideas</li>
+  </ul>
+  <p>Explore the articles below to build a wardrobe you'll love wearing.</p>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+  <div class="mt-6 rounded-xl border p-4 shadow-sm hover:shadow-md transition flex flex-col sm:flex-row gap-4 items-center text-center sm:text-left sm:items-start">
+    <Image
+        src={merinoSweaterImage}
+        alt="Everlane Merino Sweater"
+        class="w-32 h-auto rounded-md object-cover"
+    />
+    <div class="sm:ml-4">
+      <a href="/everlane-merino-sweater" class="text-xl font-semibold text-blue-700 hover:underline">
+        The Best Spring Base Layer
+      </a>
+      <p class="text-sm text-gray-600 mt-1">Everlane's Merino Crew Neck is a temperature-regulating staple—see why it's your best spring investment.</p>
+    </div>
+  </div>
+
+</Layout>
